@@ -1,0 +1,13 @@
+Django==2.2.6
+django-crispy-forms==1.7.2
+django-extensions==2.2.3
+django-http-exceptions==1.2.0
+django-simple-history==2.7.3
+django-taggit==1.1.0
+django-urls==1.0.8
+djangorestframework==3.10.3
+flake8==3.7.8
+Pillow==6.2.0
+psycopg2==2.8.3
+whitenoise==4.1.4
+isort==4.3.21

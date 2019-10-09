@@ -1,0 +1,16 @@
+# -Language
+# --Framework
+# ---Rules
+#
+
+## Python
+*.pyc
+*.pyd
+*__pycache__*
+
+# Django
+*.sqlite3
+/website/staticfiles
+/website/media
+
+## Node
