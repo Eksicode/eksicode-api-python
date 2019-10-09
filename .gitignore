@@ -1,16 +1,20 @@
-# -Language
-# --Framework
-# ---Rules
+# -Editor
+# --Language
+# ---Framework
+# ----Rules
 #
 
-## Python
+#### PyCharm
+.idea
+
+### Python
 *.pyc
 *.pyd
 *__pycache__*
 
-# Django
+## Django
 *.sqlite3
 /website/staticfiles
 /website/media
 
-## Node
+### Node
