@@ -27,7 +27,7 @@ To install requirements for project go to the base folder which has requirements
 ```
 pip install -r requirements.txt
 ```
-#INSTALLATION POSTGRESQL
+# INSTALLATION POSTGRESQL
 Follow the Setup Insturctions from this site: https://wiki.postgresql.org/wiki/Detailed_installation_guides after
 Successful installation open sql bash and type the followings:
 ```
@@ -37,7 +37,7 @@ postgres=# grant all privileges on database mydb to myuser;
 ``` 
 
 
-#INSTALLATION STEP 2 
+# INSTALLATION STEP 2 
  
 After you done with installing requirements and postgresql, go to the folder where settings.py located in (\website\website) and create example_settings.py file it should include:
   
