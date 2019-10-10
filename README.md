@@ -39,7 +39,9 @@ postgres=# grant all privileges on database mydb to myuser;
 
 # INSTALLATION STEP 2 
  
-After you done with installing requirements and postgresql, go to the folder where settings.py located in (\website\website) and create example_settings.py file it should include:
+After you done with installing requirements, go to the folder where setting.py located in (\website\website\local_settings\) and create example_settings.py file it should include:
+
+
   
 ```
 SECRET_KEY = '(INSERT YOUR SECRET_KEY HERE)'
