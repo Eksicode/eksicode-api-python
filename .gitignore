@@ -18,3 +18,9 @@
 /website/media
 
 ### Node
+
+###Settings
+example_settings.py
+
+#Virtual Environment
+venv
