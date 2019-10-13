@@ -31,6 +31,9 @@ INSTALLED_APPS = [
     'apps.core.apps.CoreConfig',
     'apps.api.apps.ApiConfig',
 
+    # third-party-top
+    'django_extensions',
+
     # built-in
     'django.contrib.admin',
     'django.contrib.auth',
@@ -116,6 +119,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = 'static'
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = 'media'
