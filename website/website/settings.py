@@ -33,6 +33,7 @@ INSTALLED_APPS = [
 
     # third-party-top
     'django_extensions',
+    'taggit',
 
     # built-in
     'django.contrib.admin',
@@ -123,6 +124,9 @@ STATIC_ROOT = 'static'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = 'media'
+
+# Auth User Model
+AUTH_USER_MODEL = 'core.User'
 
 # You can import your local settings here to overwrite anything above
 # from ..local_settings.example_settings import *
