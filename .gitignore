@@ -17,6 +17,6 @@
 *.sqlite3
 /website/staticfiles
 /website/media
-website/website/local_settings.py
+/website/website/local_settings.py
 
 ### Node
