@@ -1,9 +1,14 @@
 from django.db import models
 
+from .base import Base
 
-class TelegramGroups(models.Model):
-    name = models.TextField()
-    icon = models.TextField()
-    user_count = models.IntegerField()
-    group_id = models.TextField(blank=True, null=True)
-    content = models.TextField(blank=True, null=True)
+
+class TelegramGroup(Base):
+    # Informational
+    name = models.CharField(max_length=100)
+    group_id = models.CharField(blank=True, null=True, max_length=100)
+    user_count = models.IntegerField(default=0)
+
+    # Configurable
+    icon = models.ImageField()
+    description = models.TextField(blank=True, null=True)

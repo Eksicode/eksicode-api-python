@@ -1,26 +1,27 @@
 from django.db import models
-from django.contrib.auth.models import User
-from .tags import Tags
+from taggit.managers import TaggableManager
+
+from .base import Base
 
 
-class Resources(models.Model):
-    id = models.UUIDField(primary_key=True)
+class Resource(Base):
+    # Name of the resource
     name = models.TextField()
-    creation_date = models.DateTimeField(blank=True, null=True)
-    creator = models.ForeignKey(User, models.DO_NOTHING, db_column='creator', related_name="creator")
-    last_edit = models.DateTimeField()
+
+    # Creator of the resource, by creator we mean the person who added it
+    creator = models.ForeignKey("User", models.SET_NULL, null=True, blank=True)
+
+    # Status of the Resource
     approved = models.BooleanField()
-    appved_user = models.ForeignKey(User, models.DO_NOTHING, db_column='appved_user', related_name="appved_user")
+
+    # Comments to the resource
+    comments = models.ManyToManyField("ResourceComment")
+
+    # tags
+    tags = TaggableManager()
 
 
-class ResourceComments(models.Model):
-    id = models.UUIDField(primary_key=True)
-    resource_ud = models.ForeignKey(Resources, models.DO_NOTHING, db_column='resource_ud')
-    commenter = models.ForeignKey(User, models.DO_NOTHING, db_column='commenter')
-    title = models.TextField()
-    comment = models.TextField()
-
-
-class ResourseTags(models.Model):
-    resource = models.ForeignKey(Resources, models.DO_NOTHING, primary_key=True)
-    tag = models.ForeignKey(Tags, models.DO_NOTHING)
+class ResourceComment(Base):
+    commenter = models.ForeignKey("User", on_delete=models.SET_NULL, null=True, blank=True)
+    title = models.CharField(max_length=100)
+    content = models.TextField()
