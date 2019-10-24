@@ -11,16 +11,12 @@
 *.pyc
 *.pyd
 *__pycache__*
+*/venv/
 
 ## Django
 *.sqlite3
 /website/staticfiles
 /website/media
+/website/website/local_settings.py
 
 ### Node
-
-###Settings
-example_settings.py
-
-#Virtual Environment
-venv
