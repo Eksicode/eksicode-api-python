@@ -20,6 +20,8 @@ class Resource(Base):
     # tags
     tags = TaggableManager()
 
+    owner_field = 'creator'
+
 
 class ResourceComment(Base):
     commenter = models.ForeignKey("User", on_delete=models.SET_NULL, null=True, blank=True)

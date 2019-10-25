@@ -15,5 +15,10 @@ class Base(models.Model):
     # This is to keep a history of everything
     history = HistoricalRecords(inherit=True)
 
+    @property
+    def owner(self):
+        if hasattr(self, 'owner_field'):
+            return getattr(self, 'owner_field')
+
     class Meta:
         abstract = True
