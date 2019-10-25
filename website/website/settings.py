@@ -22,7 +22,7 @@ SECRET_KEY = 'SECRET KEY'  # this is going to be read from os.env
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [".eksicode.org"]
 
 # Application definition
 
@@ -42,18 +42,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps.core',
-    'apps.api',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'django_hosts.middleware.HostsRequestMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_hosts.middleware.HostsResponseMiddleware',
 ]
 
 ROOT_URLCONF = 'website.urls'
@@ -135,6 +135,11 @@ MEDIA_ROOT = 'media'
 
 # Auth User Model
 AUTH_USER_MODEL = 'core.User'
+
+# Subdomains
+ROOT_HOSTCONF = 'website.hosts'
+DEFAULT_HOST = 'default'
+
 
 # You can import your local settings here to overwrite anything above
 # from ..local_settings.example_settings import *
