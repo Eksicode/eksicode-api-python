@@ -21,3 +21,4 @@ pytz==2019.3
 six==1.12.0
 sqlparse==0.3.0
 whitenoise==4.1.4
+django-hosts==3.0
