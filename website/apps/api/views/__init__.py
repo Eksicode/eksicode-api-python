@@ -1,1 +1,1 @@
-from .views import *
+from .resource import ResourceViewSet
