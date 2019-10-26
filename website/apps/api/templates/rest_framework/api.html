@@ -3,6 +3,28 @@
 {% block script %}
     {{ block.super }}
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <style>
+        textarea {
+            resize: vertical;
+            min-height: min-content
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded",
+            function (e) {
+                Array.from(document.getElementsByTagName('textarea')).forEach(
+                    function (element) {
+                        element.oninput = function () {
+                            this.style.height = "";
+                            this.style.height = this.scrollHeight + "px"
+                        };
+                        element.style.height = "";
+                        element.style.height = element.scrollHeight + "px"
+                    }
+                )
+            }
+        )
+    </script>
 {% endblock %}
 {% block branding %}
     <a class='navbar-brand' rel="nofollow" href='/'>
