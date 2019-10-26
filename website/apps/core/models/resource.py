@@ -1,7 +1,7 @@
 from django.db import models
 from taggit.managers import TaggableManager
 
-from .base import Base
+from .base import Base, UUIDTaggedItem
 
 
 class Resource(Base):
@@ -18,7 +18,7 @@ class Resource(Base):
     comments = models.ManyToManyField("ResourceComment")
 
     # tags
-    tags = TaggableManager()
+    tags = TaggableManager(through=UUIDTaggedItem)
 
 
 class ResourceComment(Base):

@@ -1,7 +1,7 @@
 from django.db import models
 from taggit.managers import TaggableManager
 
-from .base import Base
+from .base import Base, UUIDTaggedItem
 from ..constants.countries import COUNTRIES
 from ..utils.models import Choices
 
@@ -24,4 +24,4 @@ class Vacancy(Base):
     # EksiCode personal assignee
     contact_person = models.TextField(blank=True, null=True)
 
-    tags = TaggableManager()
+    tags = TaggableManager(through=UUIDTaggedItem)

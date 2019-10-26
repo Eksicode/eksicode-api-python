@@ -1,7 +1,9 @@
 import uuid
 
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
 from simple_history.models import HistoricalRecords
+from taggit.models import GenericUUIDTaggedItemBase, TaggedItemBase
 
 
 class Base(models.Model):
@@ -17,3 +19,13 @@ class Base(models.Model):
 
     class Meta:
         abstract = True
+
+
+class UUIDTaggedItem(GenericUUIDTaggedItemBase, TaggedItemBase):
+    # If you only inherit GenericUUIDTaggedItemBase, you need to define
+    # a tag field. e.g.
+    # tag = models.ForeignKey(Tag, related_name="uuid_tagged_items", on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = _("Tag")
+        verbose_name_plural = _("Tags")
