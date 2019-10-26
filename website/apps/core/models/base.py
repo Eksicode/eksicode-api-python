@@ -6,7 +6,7 @@ from simple_history.models import HistoricalRecords
 
 class Base(models.Model):
     # It is OK for every item inside the db to have a uuid4 id
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
     # Some basic statistical and meta values are also OK for every item
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
