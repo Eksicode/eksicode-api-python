@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'rest_auth.registration',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'django_filters',
 
 
     # built-in
