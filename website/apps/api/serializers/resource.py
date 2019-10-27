@@ -15,6 +15,11 @@ class ResourceCommentSerializer(serializers.ModelSerializer):
             'title',
             'content',
         ]
+        read_only_fields = [
+            'id',
+            'created_at',
+            'last_updated_at',
+        ]
 
 
 class ResourceSerializer(TaggitSerializer, serializers.ModelSerializer):
@@ -28,8 +33,14 @@ class ResourceSerializer(TaggitSerializer, serializers.ModelSerializer):
             'created_at',
             'last_updated_at',
             'name',
+            'link',
             'creator',
             'approved',
             'comments',
             'tags',
+        ]
+        read_only_fields = [
+            'id',
+            'created_at',
+            'last_updated_at',
         ]
