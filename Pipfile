@@ -1,0 +1,35 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+django-crispy-forms = "==1.7.2"
+django-extensions = "==2.2.3"
+django-http-exceptions = "==1.2.0"
+django-simple-history = "==2.7.3"
+django-taggit = "==1.1.0"
+django-urls = "==1.0.8"
+djangorestframework = "==3.10.3"
+djangorestframework-simplejwt = "==4.3.0"
+entrypoints = "==0.3"
+flake8 = "==3.7.8"
+isort = "==4.3.21"
+mccabe = "==0.6.1"
+psycopg2 = "==2.8.3"
+pycodestyle = "==2.5.0"
+pyflakes = "==2.1.1"
+pytz = "==2019.3"
+six = "==1.12.0"
+soupsieve = "==1.9.4"
+sqlparse = "==0.3.0"
+whitenoise = "==4.1.4"
+gunicorn = "==19.6.0"
+Django = "==2.2.6"
+Pillow = "==6.2.0"
+PyJWT = "==1.7.1"
+
+[requires]
+python_version = "3.7"

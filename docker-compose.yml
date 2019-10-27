@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+
+  djangoapp:
+    build: .
+    volumes:
+      - .:/opt/services/djangoapp/src
+    networks:
+      - nginx_network
+
+  nginx:
+    image: nginx:1.13
+    ports:
+      - 8000:80
+    volumes:
+      - ./config/nginx/conf.d:/etc/nginx/conf.d
+    depends_on:
+      - djangoapp
+    networks:
+      - nginx_network
+
+networks:
+  nginx_network:
+    driver: bridge
