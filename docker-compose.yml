@@ -1,0 +1,59 @@
+version: '3'
+services:
+  database:
+    container_name: eksicodeDatabase
+    image: postgres
+    volumes:
+      - ./database/eksicode.sql:/docker-entrypoint-initdb.d/eksicode.sql
+    environment:
+      - POSTGRES_USER=eksicode
+      - POSTGRES_PASSWORD=eksicode
+      - POSTGRES_DB=eksicode
+      - TZ=Europe/Istanbul
+    ports:
+      - "54320:5432"
+      networks:
+      - web_nw
+
+  backend:
+      container_name: eksicodeBackend
+      build: ./backend
+      volumes:
+        - ./backend:/backend
+      env_file:
+        - eksicode.env
+      links:
+        - database
+      depends_on:
+        - database
+      restart: on-failure
+      networks:
+        - web_nw
+
+  web:
+    container_name: eksicodeWeb
+    image: nginx:alpine
+    environment:
+      - TZ=Europe/Istanbul
+      - PROTOCOL=HTTP
+    privileged: true
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - backend
+    restart: on-failure
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - web_nw
+    links:
+      - backend
+
+volumes:
+  backend:
+  database:
+  web:
+
+networks:
+  web_nw:
