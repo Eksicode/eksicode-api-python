@@ -1,12 +1,15 @@
 from django.db import models
 from taggit.managers import TaggableManager
 
-from .base import Base
+from .base import Base, UUIDTaggedItem
 
 
 class Resource(Base):
     # Name of the resource
     name = models.TextField()
+
+    # The resource's link
+    link = models.URLField()
 
     # Creator of the resource, by creator we mean the person who added it
     creator = models.ForeignKey("User", models.SET_NULL, null=True, blank=True)
@@ -18,7 +21,7 @@ class Resource(Base):
     comments = models.ManyToManyField("ResourceComment")
 
     # tags
-    tags = TaggableManager()
+    tags = TaggableManager(through=UUIDTaggedItem)
 
 
 class ResourceComment(Base):
