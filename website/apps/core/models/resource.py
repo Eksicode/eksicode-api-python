@@ -8,6 +8,9 @@ class Resource(Base):
     # Name of the resource
     name = models.TextField()
 
+    # The resource's link
+    link = models.URLField()
+
     # Creator of the resource, by creator we mean the person who added it
     creator = models.ForeignKey("User", models.SET_NULL, null=True, blank=True)
 
