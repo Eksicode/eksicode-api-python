@@ -4,6 +4,9 @@
 # ----Rules
 #
 
+# Custom 
+eksicode.env
+
 #### PyCharm
 .idea
 

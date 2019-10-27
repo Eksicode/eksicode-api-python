@@ -1,18 +1,16 @@
 # eksicode-api-server
 
-# DOcker Geliştirme Ortamı
+# Docker Development Env
 
-Ilk kurulumda sample.env dosyasını düzenleyip
+Please edit sample.env file and save as eksicode.env at the beginning
 
-eksicode.env olarak farklı kaydedin
-
-Daha sonra aşağıdaki komutu kullanarak sunucuyu ayağa kaldırın.
+After use the command down below to deploy development server
 
 docker-compose up --build
 
+-------------------------------------------------------------
 
-
-
+# Development Env
 
 First of all install virtual environment for your PC 
  (for Windows you need to download virtualenv: check http://pip.readthedocs.io/en/stable/installing/#do-i-need-to-install-pip)
