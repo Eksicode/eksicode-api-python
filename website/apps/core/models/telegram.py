@@ -10,5 +10,5 @@ class TelegramGroup(Base):
     user_count = models.IntegerField(default=0)
 
     # Configurable
-    icon = models.ImageField()
+    icon = models.ImageField(upload_to='telegram_group_icons')
     description = models.TextField(blank=True, null=True)
