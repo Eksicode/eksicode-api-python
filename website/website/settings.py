@@ -80,12 +80,9 @@ TEMPLATES = [
     },
 ]
 # REST FRAMEWORK
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ],
-}
+REST_FRAMEWORK = {}
 
+# WSGI app
 WSGI_APPLICATION = 'website.wsgi.application'
 
 # Database
