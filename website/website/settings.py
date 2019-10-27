@@ -40,6 +40,14 @@ INSTALLED_APPS = [
     'django_extensions',
     'taggit',
     'rest_framework',
+    'rest_framework.authtoken',
+    'rest_auth',
+    'allauth',
+    'allauth.account',
+    'rest_auth.registration',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+
 
     # built-in
     'django.contrib.admin',
@@ -48,7 +56,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -79,8 +90,6 @@ TEMPLATES = [
         },
     },
 ]
-# REST FRAMEWORK
-REST_FRAMEWORK = {}
 
 # WSGI app
 WSGI_APPLICATION = 'website.wsgi.application'
@@ -141,9 +150,42 @@ MEDIA_ROOT = 'media'
 # Auth User Model
 AUTH_USER_MODEL = 'core.User'
 
+ACCOUNT_USER_MODEL_USERNAME_FIELD = 'username'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = True
+# ACCOUNT_AUTHENTICATION_METHOD = ''
+
+AUTHENTICATION_BACKENDS = (
+    # Needed to login by username in Django admin, regardless of `allauth`
+    # "django.contrib.auth.backends.ModelBackend",
+    # `allauth` specific authentication methods, such as login by e-mail
+    "allauth.account.auth_backends.AuthenticationBackend",
+    "apps.core.utils.authentication.ModelBackend",
+)
+
+REST_AUTH_SERIALIZERS = {
+    # 'USER_DETAILS_SERIALIZER': 'path.to.custom.GameUserSerializer',
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': (
+        'django_filters.rest_framework.DjangoFilterBackend',
+        'rest_framework.filters.SearchFilter',
+        'rest_framework.filters.OrderingFilter',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
+
+
 # Subdomains
 ROOT_HOSTCONF = 'website.hosts'
 DEFAULT_HOST = 'default'
 
 # You can import your local settings here to overwrite anything above
 # from ..local_settings.example_settings import *
+
