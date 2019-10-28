@@ -12,12 +12,13 @@ services:
       - TZ=Europe/Istanbul
     ports:
       - "54320:5432"
-      networks:
-      - web_nw
+    networks:
+        - web_nw
 
   backend:
       container_name: eksicodeBackend
       build: ./backend
+      command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
       volumes:
         - ./backend:/backend
       env_file:
@@ -31,7 +32,7 @@ services:
         - web_nw
 
   web:
-    container_name: eksicodeWeb
+    container_name: eksicodeNginx
     image: nginx:alpine
     environment:
       - TZ=Europe/Istanbul
