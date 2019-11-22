@@ -1,0 +1,25 @@
+{% extends "rest_framework/base.html" %}
+{% load static %}
+{% block script %}
+    {{ block.super }}
+    <script src="{% static "api/api_wrapepr.js" %}"></script>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+{% endblock %}
+{% block branding %}
+    <a class='navbar-brand' rel="nofollow" href='/'>
+        <svg viewBox="0 0 300 80" xmlns="http://www.w3.org/2000/svg" height="300%">
+            <style>
+                .sourandperky {
+                    font: bold 40px Roboto;
+                    fill: red;
+                }
+            </style>
+            <text x="0" y="40" class="sourandperky">eksicode.org</text>
+        </svg>
+    </a>
+{% endblock %}
+{% block bootstrap_theme %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/3.4.1/superhero/bootstrap.min.css"
+          type="text/css">
+{% endblock %}
+{% block bootstrap_navbar_variant %}{% endblock %}
