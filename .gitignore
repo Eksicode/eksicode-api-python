@@ -22,4 +22,6 @@ eksicode.env
 /website/media
 /website/website/local_settings.py
 
-### Node
+### venv
+/eksicodevenv/
+/eksicodevenv2/

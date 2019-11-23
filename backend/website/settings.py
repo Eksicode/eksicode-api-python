@@ -27,7 +27,7 @@ CONFIG = config(DEBUG)
 
 SECRET_KEY = CONFIG.SECRET_KEY
 
-ALLOWED_HOSTS = [".eksicode.org"]
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     # custom-top
     'apps.core.apps.CoreConfig',
     'apps.api.apps.ApiConfig',
+    'apps.mainsite',
 
     # third-party-top
     'django_extensions',
@@ -48,6 +49,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'django_filters',
+    'django_telegram_login',
 
 
     # built-in
@@ -73,9 +75,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django_hosts.middleware.HostsResponseMiddleware',
 ]
-
 ROOT_URLCONF = 'website.urls'
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -157,6 +157,7 @@ ACCOUNT_USERNAME_REQUIRED = True
 # ACCOUNT_AUTHENTICATION_METHOD = ''
 
 AUTHENTICATION_BACKENDS = (
+    'apps.mainsite.auth_backends.TelegramAuth.AuthBackend',
     # Needed to login by username in Django admin, regardless of `allauth`
     "django.contrib.auth.backends.ModelBackend",
     # `allauth` specific authentication methods, such as login by e-mail
@@ -188,6 +189,9 @@ REST_FRAMEWORK = {
 ROOT_HOSTCONF = 'website.hosts'
 DEFAULT_HOST = 'default'
 
+TELEGRAM_BOT_NAME = os.environ['bot_name']
+TELEGRAM_BOT_TOKEN = os.environ['bot_token']
+TELEGRAM_LOGIN_REDIRECT_URL = ''
 # You can import your local settings here to overwrite anything above
 # from ..local_settings.example_settings import *
 
