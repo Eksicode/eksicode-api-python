@@ -71,7 +71,7 @@ postgres=# grant all privileges on database eksicode to eksicode;
 
 # INSTALLATION STEP 2 
  
-After you done with installing requirements, go to the folder where config.py located in (C:\Users\veli\PycharmProjects\eksicode-api-python\backend\website\config.py) and edit config file it should include:
+After you done with installing requirements, go to the folder where config.py located in (eksicode-api-python\backend\website\config.py) and edit config file it should include:
 
 
   
