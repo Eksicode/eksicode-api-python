@@ -50,7 +50,9 @@ pip install -r requirements.txt
 Use the /newbot command to create a new bot. 
 The BotFather(https://telegram.me/BotFather) will ask you for a name and username, then generate an authorization token for your new bot.
 
-after successful creating bot with botfather, create two new environmental variable named bot_name, bot_token with bot name and token values 
+after successful creating bot with botfather, create two new environmental variable named bot_name, bot_token with bot name and token values <br>
+
+then use the /setdomain command to link your domain to telegram bot  will ask you for a domain 
 
 
 
