@@ -45,8 +45,8 @@ To install requirements for project go to the base folder which has requirements
 pip install -r requirements.txt
 ```
 
-#TELEGRAM BOT SETUP
-######Creating a new bot <br><br>
+# TELEGRAM BOT SETUP
+###### Creating a new bot <br><br>
 Use the /newbot command to create a new bot. 
 The BotFather(https://telegram.me/BotFather) will ask you for a name and username, then generate an authorization token for your new bot.
 
@@ -97,7 +97,7 @@ ef config(debug, cache={}):
 ```
 (You can create your own SECRET_KEY on https://www.miniwebtool.com/django-secret-key-generator/)
 
-######LOCALTUNNEL SETUP (FOR PERSONAL COMPUTER ENVIRONMENT )
+###### LOCALTUNNEL SETUP (FOR PERSONAL COMPUTER ENVIRONMENT )
 
 Telegram requires a domain of your website. The widget does not get any HTTP responses for the developer but Telegram sends requests to your web address on its own . <br><br>This is a small problem in local development.
 Install the localtunnel package via the npm (install it as well, in case if you do not have it).
