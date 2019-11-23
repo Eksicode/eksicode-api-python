@@ -44,42 +44,71 @@ To install requirements for project go to the base folder which has requirements
 ```
 pip install -r requirements.txt
 ```
+
+#TELEGRAM BOT SETUP
+######Creating a new bot <br><br>
+Use the /newbot command to create a new bot. 
+The BotFather(https://telegram.me/BotFather) will ask you for a name and username, then generate an authorization token for your new bot.
+
+after successful creating bot with botfather, create two new environmental variable named bot_name, bot_token with bot name and token values 
+
+
+
+
+
+On your base file (\eksicode-api-python\website) open terminal and type the followings:
+
 # INSTALLATION POSTGRESQL
 Follow the Setup Insturctions from this site: https://wiki.postgresql.org/wiki/Detailed_installation_guides after
 Successful installation open sql bash and type the followings:
 ```
-postgres=# create database mydb;
-postgres=# create user myuser with encrypted password 'mypass';
-postgres=# grant all privileges on database mydb to myuser;
+postgres=# create database eksicode;
+postgres=# create user eksicode with encrypted password 'eksicode';
+postgres=# grant all privileges on database eksicode to eksicode;
 ``` 
-
 
 # INSTALLATION STEP 2 
  
-After you done with installing requirements, go to the folder where setting.py located in (\website\website\local_settings\) and create example_settings.py file it should include:
+After you done with installing requirements, go to the folder where config.py located in (C:\Users\veli\PycharmProjects\eksicode-api-python\backend\website\config.py) and edit config file it should include:
 
 
   
 ```
-SECRET_KEY = '(INSERT YOUR SECRET_KEY HERE)'
-ALLOWED_HOSTS = []
-DEBUG = True
-import os
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        "HOST": "localhost",
-        "PASSWORD": "[mypass]",
-        "PORT": '',
-        'NAME': "[mydb]",
-        "USER": "[myuser]",
-    }
-}
+ef config(debug, cache={}):
+    d = lambda _debug, _prod: _debug if debug else os.environ[_prod]
+    if cache:
+        return cache['config']
+    else:
+        cache['config'] = AttrDict.from_data(  # This is the actual configuration
+            # The d functions' second parameter is the name of the alleged os.env variable to use on production
+            {
+                'DB': {
+                    'name': d('eksicode', 'DB.name'),
+                    'user': d('eksicode', 'DB.user'),
+                    'password': d('eksicode', 'DB.password'),
+                    'host': d('127.0.0.1', 'DB.host'),
+                    'port': d('5432', 'DB.port'),
+                },
+                'SECRET_KEY': d('SECRET_KEY', 'SECRET_KEY')
+            }
+        )
+        return cache['config']
+
 ```
 (You can create your own SECRET_KEY on https://www.miniwebtool.com/django-secret-key-generator/)
 
-On your base file (\eksicode-api-python\website) open terminal and type the followings:
+######LOCALTUNNEL SETUP (FOR PERSONAL COMPUTER ENVIRONMENT )
 
+Telegram requires a domain of your website. The widget does not get any HTTP responses for the developer but Telegram sends requests to your web address on its own . <br><br>This is a small problem in local development.
+Install the localtunnel package via the npm (install it as well, in case if you do not have it).
+```
+$ npm install -g localtunnel
+```
+Then, run the localtunnel tool with a port which you are going to use with the manager’s runserver command.
+```
+$ lt --port 8000
+```
+after that you are ready to run server(good job ! :)  On your base file (\eksicode-api-python\website) open terminal and type the followings:
 ```
  python manage.py makemigrations                  (to making migrations ready for database to pull)
  python manage.py migrate                         (to migrate ready migrations)
@@ -93,6 +122,6 @@ python manage.py createsuperuser
 
 run the server
 ```
-python manage.py runserver
+python manage.py runserver 0.0.0.0:8000
 ```
 
