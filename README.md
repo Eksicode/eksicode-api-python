@@ -58,8 +58,6 @@ then use the /setdomain command to link your domain to telegram bot  will ask yo
 
 
 
-On your base file (\eksicode-api-python\website) open terminal and type the followings:
-
 # INSTALLATION POSTGRESQL
 Follow the Setup Insturctions from this site: https://wiki.postgresql.org/wiki/Detailed_installation_guides after
 Successful installation open sql bash and type the followings:
