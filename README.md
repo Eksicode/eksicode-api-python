@@ -5,14 +5,14 @@
 Please edit sample.env file and save as eksicode.env at the beginning
 
 After use the command down below to deploy development server
-
-docker-compose up --build
-
+```
+sudo docker-compose up --build
+```
 
 To stop all running containers run
-
+```
 docker kill $(docker ps -q)
-
+```
 -------------------------------------------------------------
 
 # Development Env
