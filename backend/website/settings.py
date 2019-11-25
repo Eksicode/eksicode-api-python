@@ -157,6 +157,7 @@ ACCOUNT_USERNAME_REQUIRED = True
 # ACCOUNT_AUTHENTICATION_METHOD = ''
 
 AUTHENTICATION_BACKENDS = (
+    # Needed to login by telegram
     'apps.mainsite.auth_backends.TelegramAuth.AuthBackend',
     # Needed to login by username in Django admin, regardless of `allauth`
     "django.contrib.auth.backends.ModelBackend",
